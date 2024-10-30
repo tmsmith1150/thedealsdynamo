@@ -1,6 +1,7 @@
+import ProductHeaderImage from "@/components/ProductHeaderImage";
+import ProductDetails from "@/components/ProductDetails";
 import connectDB from "@/config/database";
 import Product from "@/models/Product";
-import ProductHeaderImage from "@/components/ProductHeaderImage";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 
@@ -26,7 +27,7 @@ const ProductPage = async ({ params }) => {
     <section className="bg-blue-50">
       <div className="container m-auto py-10 px-6">
         <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
-         {/* <!-- Product Info --> */}
+         <ProductDetails product={product} />
         </div>
         </div>
         </section>
