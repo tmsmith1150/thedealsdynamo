@@ -1,0 +1,134 @@
+[
+  {
+    "_id": "1",
+    "store": "1",
+    "name": "Montclaire Tall Chest",
+    "type": "Case Goods",
+    "sku": "145454   424",
+    "description": "sdfas sdfsadfds asdfsdfasd",
+    "location": "51",
+    "regular": "599.00",
+    "disc": "299.00",
+    "options": "86033 TL 939",
+    "serial": "777777",
+    "storeinfo": {
+      "name": "John Doe",
+      "email": "john@gmail.com",
+      "phone": "617-555-5555"
+    },
+    "images": ["14-5454_424_F.webp", "14-5454_424_FL_dimension.webp", "14-5454_424_FL.webp"],
+    "is_featured": false,
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "2",
+    "store": "1",
+    "name": "Montclaire Tall Chest",
+    "type": "Upholstery",
+    "sku": "145454   424",
+    "description": "sdfas sdfsadfds asdfsdfasd",
+    "location": "51",
+    "regular": "599.00",
+    "disc": "299.00",
+    "options": "86033 TL 939",
+    "serial": "77",
+    "storeinfo": {
+      "name": "John Doe",
+      "email": "john@gmail.com",
+      "phone": "617-555-5555"
+    },
+    "images": ["14-5454_424_F.webp", "14-5454_424_FL_dimension.webp", "14-5454_424_FL.webp"],
+    "is_featured": false,
+    "createdAt": "2024-01-02T00:00:00.000Z",
+    "updatedAt": "2024-01-02T00:00:00.000Z"
+  },
+  {
+    "_id": "3",
+    "store": "2",
+    "name": "Montclaire Tall Chest",
+    "type": "Area Rugs",
+    "sku": "145454   424",
+    "description": "sdfas sdfsadfds asdfsdfasd",
+    "location": "51",
+   "regular": "599.00",
+    "disc": "299.00",
+    "options": "86033 TL 939",
+    "serial": "77",
+    "storeinfo": {
+      "name": "John Doe",
+      "email": "john@gmail.com",
+      "phone": "617-555-5555"
+    },
+    "images": ["14-5454_424_F.webp", "14-5454_424_FL_dimension.webp", "14-5454_424_FL.webp"],
+    "is_featured": false,
+    "createdAt": "2024-01-03T00:00:00.000Z",
+    "updatedAt": "2024-01-03T00:00:00.000Z"
+  },
+  {
+    "_id": "4",
+    "store": "2",
+    "name": "Montclaire Tall Chest",
+    "type": "Case Goods",
+    "sku": "145454   424",
+    "description": "sdfas sdfsadfds asdfsdfasd",
+    "location": "51",
+   "regular": "599.00",
+    "disc": "299.00",
+    "options": "86033 TL 939",
+    "serial": "77",
+    "storeinfo": {
+      "name": "John Doe",
+      "email": "john@gmail.com",
+      "phone": "617-555-5555"
+    },
+    "images": ["14-5454_424_F.webp", "14-5454_424_FL_dimension.webp", "14-5454_424_FL.webp"],
+    "is_featured": false,
+    "createdAt": "2024-01-04T00:00:00.000Z",
+    "updatedAt": "2024-01-04T00:00:00.000Z"
+  },
+  {
+    "_id": "5",
+    "store": "2",
+    "name": "Montclaire Tall Chest",
+    "type": "Case Goods",
+    "sku": "145454   424",
+    "description": "sdfas sdfsadfds asdfsdfasd",
+    "location": "51",
+   "regular": "599.00",
+    "disc": "299.00",
+    "options": "86033 TL 939",
+    "serial": "77",
+    "storeinfo": {
+      "name": "John Doe",
+      "email": "john@gmail.com",
+      "phone": "617-555-5555"
+    },
+    "images": ["14-5454_424_F.webp", "14-5454_424_FL_dimension.webp", "14-5454_424_FL.webp"],
+    "is_featured": false,
+    "createdAt": "2024-01-04T00:00:00.000Z",
+    "updatedAt": "2024-01-04T00:00:00.000Z"
+  },
+  {
+    "_id": "6",
+    "store": "3",
+    "name": "Montclaire Tall Chest",
+    "type": "Case Goods",
+    "sku": "145454   424",
+    "description": "sdfas sdfsadfds asdfsdfasd",
+    "location": "51",
+   "regular": "599.00",
+    "disc": "299.00",
+    "options": "86033 TL 939",
+    "serial": "77",
+    "storeinfo": {
+      "name": "John Doe",
+      "email": "john@gmail.com",
+      "phone": "617-555-5555"
+    },
+    "images": ["14-5454_424_F.webp", "14-5454_424_FL_dimension.webp", "14-5454_424_FL.webp"],
+    "is_featured": false,
+    "createdAt": "2024-01-04T00:00:00.000Z",
+    "updatedAt": "2024-01-04T00:00:00.000Z"
+  }
+]
