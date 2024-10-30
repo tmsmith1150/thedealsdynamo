@@ -1,7 +1,12 @@
-import products from '@/products.json';
 import ProductCard from '@/components/ProductCard';
+import connectDB from '@/config/database';
+import Product from '@/models/Product';
 
-const ProductsPage = () => {
+const ProductsPage = async () => {
+    await connectDB();
+
+    const products = await Product.find({}).lean();
+
     return ( 
         <section className='px-4 py-6'>
             <div className='container-xl lg:container m-auto px04 py-6'>

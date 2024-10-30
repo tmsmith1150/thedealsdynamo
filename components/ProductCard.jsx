@@ -16,7 +16,7 @@ const ProductCard  = ({product}) => {
             <div className="p-4">
               <div className="text-left md:text-center lg:text-left mb-6">
                 <div className="text-gray-600">{product.type}</div>
-                <div className="flex space-x-28  text-gray-500 mb-4">
+                <div className="flex space-x-36  text-gray-500 mb-4">
                 <p>
                   <span className="md:hidden lg:inline">SKU: {product.sku}</span>
                 </p>
@@ -41,8 +41,13 @@ const ProductCard  = ({product}) => {
               <div className="border border-gray-100 mb-5"></div>
 
               <div className="flex flex-col lg:flex-row justify-between mb-4">
-                <div className="flex align-middle gap-2 mb-4 lg:mb-0">
+                <div className="flex flex-col align-middle gap-2 mb-4 lg:mb-0">
+                  <div>
                   <span className="text-gray-700">Reg Retail: {product.regular}</span>
+                  </div>
+                  <div>
+                  <span className="text-gray-700">Location: {product.location}</span>
+                  </div>
                 </div>
                 <Link
                   href={`/products/${product._id}`}
