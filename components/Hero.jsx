@@ -9,7 +9,7 @@ const Hero = () => {
           <h1
             className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl"
           >
-            Search All Designer Floor Samples
+            Search Designer Floor Samples
           </h1>
         </div>
         <form
