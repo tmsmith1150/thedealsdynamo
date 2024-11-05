@@ -35,7 +35,10 @@ const ProductDetails = ({ product }) => {
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-md mt-6">
+              <div className='flex justify-between'>
               <h3 className="text-lg font-bold mb-6">Description & Details</h3>
+              <h3 className="text-lg font-medium mb-6">Location: {product.location}</h3>
+              </div>
               <div
                 className="flex justify-center gap-4 text-blue-500 mb-4 text-xl space-x-9"
               >
