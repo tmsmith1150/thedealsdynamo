@@ -10,6 +10,7 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Navbar = () => {
     const { data: session } = useSession();
+    const profileImage = session?.user?.image;
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -82,6 +83,12 @@ const Navbar = () => {
                                     href="/"
                                     className={`${pathname === '/' ? 'bg-black' : ''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                                 >Home</Link>
+                                {session && (
+                                <Link
+                                    href="/welcome"
+                                    className={`${pathname === '/products' ? 'bg-black' : ''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                                >User Home</Link>
+                            )}
                                 {session && (
                                 <Link
                                     href="/products"
@@ -165,7 +172,9 @@ const Navbar = () => {
                                     <span className="sr-only">Open user menu</span>
                                     <Image
                                         className="h-8 w-8 rounded-full"
-                                        src={profileDefault}
+                                        src={profileImage || profileDefault}
+                                        width={40}
+                                        height={40}
                                         alt=""
                                     />
                                 </button>
@@ -195,14 +204,18 @@ const Navbar = () => {
                                     role="menuitem"
                                     tabIndex="-1"
                                     id="user-menu-item-2"
-                                >Saved Properties</Link>
-                                <Link
+                                >Saved Products</Link>
+                                <button
                                     href="#"
                                     className="block px-4 py-2 text-sm text-gray-700"
                                     role="menuitem"
                                     tabIndex="-1"
                                     id="user-menu-item-2"
-                                >Sign Out</Link>
+                                    onClick={() => {
+                                        setIsProfileMenuOpen(false);
+                                        signOut();
+                                    }}
+                                >Sign Out</button>
                             </div>
                             )}
                         </div>
@@ -222,6 +235,12 @@ const Navbar = () => {
                             >Home</Link>
                             {session && (
                             <Link
+                                href="/welcome"
+                                className={`${pathname === '/products' ? 'bg-black' : ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
+                            >User Home</Link>
+                            )}
+                            {session && (
+                            <Link
                                 href="/products"
                                 className={`${pathname === '/products' ? 'bg-black' : ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
                             >Products</Link>
@@ -232,14 +251,23 @@ const Navbar = () => {
                                 className={`${pathname === '/products/add' ? 'bg-black' : ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
                             >Add Product</Link>
                         )}
-                            {!session && (
-                            <button
-                                className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4"
-                            >
-                                <FaGoogle className=" text-white mr-2" />
-                                <span>Login or Register</span>
-                            </button>
-                            )}
+                             {!session && (
+              <div className='block md:ml-6'>
+                <div className='flex items-center'>
+                  {providers &&
+                    Object.values(providers).map((provider) => (
+                      <button
+                        key={provider.name}
+                        onClick={() => signIn(provider.id)}
+                        className='flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-3'
+                      >
+                        <FaGoogle className='text-white mr-2' />
+                        <span>Login or Register</span>
+                      </button>
+                    ))}
+                </div>
+              </div>
+            )}
                         </div>
                     </div>
                 )}
