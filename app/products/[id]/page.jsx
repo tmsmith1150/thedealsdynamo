@@ -1,5 +1,6 @@
 import ProductHeaderImage from "@/components/ProductHeaderImage";
 import ProductDetails from "@/components/ProductDetails";
+import ProductImages from "@/components/ProductImages";
 import connectDB from "@/config/database";
 import Product from "@/models/Product";
 import Link from "next/link";
@@ -31,6 +32,7 @@ const ProductPage = async ({ params }) => {
         </div>
         </div>
         </section>
+        <ProductImages images={product.images} />
         </>
      );
 }

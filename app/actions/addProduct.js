@@ -5,6 +5,7 @@ import { getSessionUser } from "@/utils/getSessionUser";
 import { getSession } from "next-auth/react";
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import cloudinary from "../../config/cloudinary";
 
 
 async function addProduct(formData) {
@@ -22,7 +23,6 @@ async function addProduct(formData) {
     const images = formData
     .getAll('images')
     .filter((image) => image.name !== '')
-    .map((image) => image.name);
 
     const productData = {
         store: userId,
@@ -39,8 +39,25 @@ async function addProduct(formData) {
         email: formData.get('storeinfo.email'),
         phone: formData.get('storeinfo.phone'),
         },
-        images
     };
+
+    const imageUrls = [];
+
+    for (const imageFile of images) {
+        const imageBuffer = await imageFile.arrayBuffer();
+        const imageArray = Array.from(new Uint8Array(imageBuffer));
+        const imageData = Buffer.from(imageArray);
+
+        const imageBase64 = imageData.toString('base64');
+
+        const result = await cloudinary.uploader.upload(`data:image/png;base64,${imageBase64}`, {
+            folder: 'dealsdynamo'
+        });
+
+        imageUrls.push(result.secure_url);
+    }
+
+    productData.images = imageUrls;
 
     const newProduct = new Product(productData);
     await newProduct.save();

@@ -6,7 +6,7 @@ const ProductCard  = ({product}) => {
     return ( 
           <div className="rounded-xl shadow-md relative">
             <Image
-            src={`/images/products/${product.images[0]}`}
+            src={product.images[0]}
               alt=""
               width='0'
               height='0'
@@ -46,7 +46,7 @@ const ProductCard  = ({product}) => {
                   <span className="text-gray-700">Reg Retail: {product.regular}</span>
                   </div>
                   <div>
-                  <span className="text-gray-700">Location: {product.location}</span>
+                  <span className="text-gray-700">Location: {product.storeinfo.name}</span>
                   </div>
                 </div>
                 <Link
