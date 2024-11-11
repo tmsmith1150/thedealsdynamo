@@ -5,11 +5,18 @@ import connectDB from "@/config/database";
 import Product from "@/models/Product";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+import { convertToSerializableObject } from "@/utils/convertToObject";
 
 
 const ProductPage = async ({ params }) => {
     await connectDB();
-    const product = await Product.findById(params.id).lean();
+
+    const productDoc = await Product.findById(params.id).lean();
+    const product = convertToSerializableObject(productDoc);
+
+    if (!product) {
+      return (<h1 className='text-center textg-2xl font-bold mt-10'>Product Not Found</h1>)
+    }
     
     return  ( 
         <>
