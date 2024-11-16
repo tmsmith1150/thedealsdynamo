@@ -5,14 +5,19 @@ import Link from "next/link";
 const ProductCard  = ({product}) => {
     return ( 
           <div className="rounded-xl shadow-md relative">
+            <Link
+                  href={`/products/${product._id}`}
+                >
             <Image
             src={product.images[0]}
               alt=""
               width='0'
               height='0'
               sizes='100vw'
+              maxwidth='100%'
               className='w-full h-auto rounded-t-xl'
             />
+            </Link>
             <div className="p-4">
               <div className="text-left md:text-center lg:text-left mb-6">
                 <div className="text-gray-600">{product.type}</div>
@@ -27,9 +32,9 @@ const ProductCard  = ({product}) => {
                 <h3 className="text-xl font-bold">{product.name}</h3>
               </div>
               <h3
-                className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right"
+                className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-3xl text-blue-500 font-bold text-right md:text-center lg:text-right"
               >
-                {product.disc}
+                ${product.disc}
               </h3>
 
               <div
@@ -43,7 +48,7 @@ const ProductCard  = ({product}) => {
               <div className="flex flex-col lg:flex-row justify-between mb-4">
                 <div className="flex flex-col align-middle gap-2 mb-4 lg:mb-0">
                   <div>
-                  <span className="text-gray-700">Reg Retail: {product.regular}</span>
+                  <span className="text-gray-700">Reg Retail: ${product.regular}</span>
                   </div>
                   <div>
                   <span className="text-gray-700">Location: {product.storeinfo.name}</span>

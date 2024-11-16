@@ -1,11 +1,17 @@
 import ProductCard from '@/components/ProductCard';
+import Pagination from '@/components/Pagination';
 import connectDB from '@/config/database';
 import Product from '@/models/Product';
 
-const ProductsPage = async () => {
+const ProductsPage = async ({ searchParams: { page = 1, pageSize = 12 } }) => {
     await connectDB();
 
-    const products = await Product.find({}).lean();
+    const skip = (page - 1) *pageSize;
+    const total = await Product.countDocuments({});
+
+    const products = await Product.find({}).skip(skip).limit(pageSize);
+
+    const showPagination = total > pageSize;
 
     return ( 
         <section className='px-4 py-6'>
@@ -19,6 +25,8 @@ const ProductsPage = async () => {
                         ))}
                      </div>
                 )}
+                {showPagination && (<Pagination page={parseInt(page)} pageSize={parseInt(pageSize)} totalItems={total} />)}
+                
             </div>
         </section>
      );

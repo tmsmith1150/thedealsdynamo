@@ -4,11 +4,11 @@ const ProductHeaderImage = ({ image }) => {
     return ( 
         <section>
       <div className="container-xl m-auto">
-        <div className="grid grid-cols-1">
+        <div className="max-w-full flex justify-center">
           <Image
             src={image}
             alt=""
-            className="object-cover h-[400px] w-full"
+            className="object-scale-down h-[400px] w-auto"
             width={0}
             height={0}
             sizes='100vw'

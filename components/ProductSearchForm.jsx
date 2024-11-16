@@ -45,6 +45,7 @@ const ProductSearchForm = () => {
               value={productType}
               onChange={(e) => setProductType(e.target.value)}
             >
+              <option value="All">All</option>
               <option value="Upholstery">Upholstery</option>
                 <option value="Casegoods">Casegoods</option>
                 <option value="Area Rugs">Area Rugs</option>

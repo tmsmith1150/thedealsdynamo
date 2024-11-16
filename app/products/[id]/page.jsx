@@ -1,6 +1,9 @@
 import ProductHeaderImage from "@/components/ProductHeaderImage";
 import ProductDetails from "@/components/ProductDetails";
 import ProductImages from "@/components/ProductImages";
+import BookmarkButton from "@/components/BookMarkButton";
+import ShareButtons from "@/components/ShareButtons";
+import ProductContactForm from "@/components/ProductContactForm";
 import connectDB from "@/config/database";
 import Product from "@/models/Product";
 import Link from "next/link";
@@ -36,6 +39,12 @@ const ProductPage = async ({ params }) => {
       <div className="container m-auto py-10 px-6">
         <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
          <ProductDetails product={product} />
+         <aside className="space-y-4">
+          <BookmarkButton product={product} />
+          <ShareButtons product={product} />
+          <ProductContactForm product={product} />
+
+         </aside>
         </div>
         </div>
         </section>

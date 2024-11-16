@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AuthProvider from '@/components/AuthProvider';
 import '@/assets/styles/globals.css';
+import 'photoswipe/dist/photoswipe.css';
 
 export const metadata = {
     title: 'The Deals Dynamo',
