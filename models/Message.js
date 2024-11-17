@@ -12,18 +12,16 @@ const MessageSchema = new Schema(
       ref: 'User',
       required: true,
     },
-    property: {
+    product: {
       type: Schema.Types.ObjectId,
-      ref: 'Property',
+      ref: 'Product',
       required: true,
     },
     name: {
       type: String,
-      required: [true, 'Name is required'],
     },
     email: {
       type: String,
-      required: [true, 'Email is required'],
     },
     phone: {
       type: String,

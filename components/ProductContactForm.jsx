@@ -1,9 +1,10 @@
 'use client';
 import { useEffect } from 'react';
-import { useActionState, useFormStatus } from 'react';
+import { useActionState } from 'react';
 import { useSession } from 'next-auth/react';
-import { FaPaperPlane } from "react-icons/fa";
+import { toast } from 'react-toastify';
 import addMessage from '@/app/actions/addMessage';
+import SubmitMessageButton from './SubmitMessageButton';
 
 
 const ProductContactForm = ({ product }) => {
@@ -11,8 +12,13 @@ const ProductContactForm = ({ product }) => {
 
   const [state, formAction] = useActionState(addMessage, {});
 
-  if(state.submitted) {
-    return(
+  useEffect(() => {
+    if (state.error) toast.error(state.error);
+    if (state.submitted) toast.success('Message sent successfully');
+  }, [state]);
+
+  if (state.submitted) {
+    return (
       <p className="text-green-500 mb-4">Your message has been sent</p>
     )
   }
@@ -33,6 +39,7 @@ const ProductContactForm = ({ product }) => {
           <input
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             id='name'
+            name='name'
             type='text'
             placeholder='Enter your name'
           />
@@ -47,6 +54,7 @@ const ProductContactForm = ({ product }) => {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
+            name='email'
             type="email"
             placeholder="Enter your email"
           />
@@ -61,6 +69,7 @@ const ProductContactForm = ({ product }) => {
           <input
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             id='phone'
+            name='phone'
             type='text'
             placeholder='Enter your phone number'
           />
@@ -80,12 +89,7 @@ const ProductContactForm = ({ product }) => {
           ></textarea>
         </div>
         <div>
-          <button
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline flex items-center justify-center"
-            type="submit"
-          >
-            <FaPaperPlane className='mr-2' /> Send Message
-          </button>
+          <SubmitMessageButton />
         </div>
       </form>
     </div>

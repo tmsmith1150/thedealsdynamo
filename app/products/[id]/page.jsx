@@ -39,7 +39,7 @@ const ProductPage = async ({ params }) => {
       <div className="container m-auto py-10 px-6">
         <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
          <ProductDetails product={product} />
-         <aside className="space-y-4">
+         <aside className="space-y-4 ml-16">
           <BookmarkButton product={product} />
           <ShareButtons product={product} />
           <ProductContactForm product={product} />
