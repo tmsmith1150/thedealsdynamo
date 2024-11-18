@@ -1,14 +1,15 @@
 import ProductEditForm from "@/components/ProductEditForm";
 import connectDB from "@/config/database";
 import Product from "@/models/Product";
-import { convertToSerializableObject } from "@/utils/convertToObject";
+import { convertToSerializeableObject } from "@/utils/convertToObject";
 
-const ProductEditPage = async ({params}) => {
+const ProductEditPage = async props => {
+    const params = await props.params;
     await connectDB();
 
     const productDoc = await Product.findById(params.id).lean();
 
-    const product = convertToSerializableObject(productDoc);
+    const product = convertToSerializeableObject(productDoc);
 
     if(!product) {
         return (

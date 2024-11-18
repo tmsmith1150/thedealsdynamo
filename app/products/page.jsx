@@ -3,7 +3,14 @@ import Pagination from '@/components/Pagination';
 import connectDB from '@/config/database';
 import Product from '@/models/Product';
 
-const ProductsPage = async ({ searchParams: { pageSize = 12, page = 1 } }) => {
+const ProductsPage = async props => {
+    const searchParams = await props.searchParams;
+
+    const {
+        pageSize = 12,
+        page = 1
+    } = searchParams;
+
     await connectDB();
 
     const skip = (page - 1) * pageSize;

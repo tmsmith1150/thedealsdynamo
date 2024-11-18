@@ -6,7 +6,7 @@ import profileDefault from '@/assets/images/profile.png';
 import { getSession } from "next-auth/react";
 import Product from "@/models/Product";
 import ProfileProducts from "@/components/ProfileProducts";
-import { convertToSerializableObject } from "@/utils/convertToObject";
+import { convertToSerializeableObject } from "@/utils/convertToObject";
 
 
 const ProfilePage = async () => {
@@ -22,7 +22,7 @@ const ProfilePage = async () => {
 
     const productsDocs = await Product.find({ store: userId}).lean();
     
-    const products = productsDocs.map(convertToSerializableObject);
+    const products = productsDocs.map(convertToSerializeableObject);
 
 
     return ( 
