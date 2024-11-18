@@ -3,10 +3,10 @@ import Pagination from '@/components/Pagination';
 import connectDB from '@/config/database';
 import Product from '@/models/Product';
 
-const ProductsPage = async ({ searchParams: { page = 1, pageSize = 12 } }) => {
+const ProductsPage = async ({ searchParams: { pageSize = 12, page = 1 } }) => {
     await connectDB();
 
-    const skip = (page - 1) *pageSize;
+    const skip = (page - 1) * pageSize;
     const total = await Product.countDocuments({});
 
     const products = await Product.find({}).skip(skip).limit(pageSize);
